@@ -135,21 +135,24 @@
       // Get the full current path
       const currentPath = window.location.pathname;
       
-      // Determine if we're in a subdirectory by checking for '/pages/' in the path
-      const isInPagesDirectory = currentPath.includes('/pages/') || currentPath.includes('\\pages\\');
+      // We no longer need to check for pages directory since all HTML files are in root
+      // Just check if we're not on the index page
+      const isNotIndexPage = !currentPath.endsWith('index.html') && 
+                             !currentPath.endsWith('/') && 
+                             currentPath.length > 1;
       
       // Set correct paths based on current location
       function fixFooterLink(id, path) {
         const element = document.getElementById(id);
-        if (element) element.href = isInPagesDirectory ? '../' + path : './' + path;
+        if (element) element.href = isNotIndexPage ? './' + path : path;
       }
       
       // Set footer links
       fixFooterLink('footer-home', 'index.html');
-      fixFooterLink('footer-resume', 'pages/resume.html');
-      fixFooterLink('footer-projects', 'pages/projects.html');
-      fixFooterLink('footer-timeline', 'pages/timeline.html');
-      fixFooterLink('footer-reports', 'pages/reports.html');
+      fixFooterLink('footer-resume', 'resume.html');
+      fixFooterLink('footer-projects', 'projects.html');
+      fixFooterLink('footer-timeline', 'timeline.html');
+      fixFooterLink('footer-reports', 'reports.html');
       fixFooterLink('footer-cv', 'assets/documents/cv.pdf');
     });
   </script>
