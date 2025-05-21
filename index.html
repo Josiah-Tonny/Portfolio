@@ -13,13 +13,14 @@
     <link rel="stylesheet" href="./css/responsive.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         'sans': ['Inter', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        'display': ['Poppins', 'Segoe UI', 'sans-serif'],
                     },
                     colors: {
                         primary: {
@@ -89,11 +90,16 @@
             line-height: 1.6;
             scroll-behavior: smooth;
             padding-top: 80px;
+            background-image: 
+                radial-gradient(circle at 25px 25px, rgba(52, 152, 219, 0.02) 2%, transparent 0%), 
+                radial-gradient(circle at 75px 75px, rgba(52, 152, 219, 0.02) 2%, transparent 0%);
+            background-size: 100px 100px;
         }
 
         .gradient-bg {
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             position: relative;
+            overflow: hidden;
         }
         
         .gradient-bg::before {
@@ -114,10 +120,107 @@
             position: relative;
             overflow: hidden;
         }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: linear-gradient(to top, var(--background-color) 0%, transparent 100%);
+            z-index: 5;
+        }
 
         .hero-content {
             position: relative;
             z-index: 10;
+        }
+        
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.2;
+        }
+        
+        .animated-bg span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(52, 152, 219, 0.15);
+            animation: move 25s linear infinite;
+            border-radius: 50%;
+        }
+        
+        .animated-bg span:nth-child(1) {
+            top: 20%;
+            left: 20%;
+            animation-duration: 15s;
+            width: 80px;
+            height: 80px;
+            opacity: 0.2;
+        }
+        
+        .animated-bg span:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-duration: 25s;
+            width: 60px;
+            height: 60px;
+            opacity: 0.1;
+        }
+        
+        .animated-bg span:nth-child(3) {
+            top: 40%;
+            left: 40%;
+            animation-duration: 20s;
+            width: 40px;
+            height: 40px;
+            opacity: 0.3;
+            animation-delay: 2s;
+        }
+        
+        .animated-bg span:nth-child(4) {
+            top: 80%;
+            left: 10%;
+            animation-duration: 22s;
+            width: 100px;
+            height: 100px;
+            opacity: 0.1;
+            animation-delay: 5s;
+        }
+        
+        .animated-bg span:nth-child(5) {
+            top: 10%;
+            left: 70%;
+            animation-duration: 18s;
+            width: 70px;
+            height: 70px;
+            opacity: 0.2;
+            animation-delay: 1s;
+        }
+        
+        @keyframes move {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(100px, 100px) rotate(90deg) scale(1.1);
+            }
+            50% {
+                transform: translate(200px, 50px) rotate(180deg) scale(1);
+            }
+            75% {
+                transform: translate(100px, -100px) rotate(270deg) scale(0.9);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg) scale(1);
+            }
         }
 
         .hero-overlay {
@@ -136,14 +239,33 @@
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             padding: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             transition: all 0.4s ease;
             border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .section-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--accent-color), transparent);
+            transition: height 0.5s ease;
         }
 
         .section-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-card:hover::after {
+            height: 100%;
         }
 
         .section-header {
@@ -152,10 +274,11 @@
         }
         
         .section-header h2 {
+            font-family: 'Poppins', sans-serif;
             font-weight: 700;
             position: relative;
             display: inline-block;
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.7rem;
         }
         
         .section-header h2::after {
@@ -178,10 +301,43 @@
             justify-content: center;
             color: white;
             margin: 0 auto;
-            box-shadow: 0 15px 30px rgba(0, 242, 254, 0.2);
+            box-shadow: 
+                0 15px 30px rgba(0, 242, 254, 0.2),
+                0 0 0 10px rgba(255, 255, 255, 0.8);
             overflow: hidden;
             border: 5px solid white;
             animation: float 6s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            z-index: -1;
+            opacity: 0.5;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
         }
 
         .profile-image img {
@@ -206,12 +362,14 @@
             margin: 0.25rem;
             border: 1px solid rgba(52, 152, 219, 0.2);
             transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
         }
         
         .tag-pill:hover {
             background-color: var(--accent-color);
             color: white;
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
         }
 
         .cta-button {
@@ -226,6 +384,8 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
         }
         
         .cta-button::after {
@@ -235,7 +395,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.2);
             transform: translateX(-100%);
             transition: transform 0.4s ease;
             z-index: -1;
@@ -244,11 +404,16 @@
         .cta-button:hover {
             background-color: #2980b9;
             transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
         }
         
         .cta-button:hover::after {
             transform: translateX(0);
+        }
+        
+        .cta-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
         }
 
         .social-icons {
@@ -261,8 +426,8 @@
         .social-icon {
             background-color: #ffffff;
             border-radius: 50%;
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -271,13 +436,31 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #2980b9 100%);
+            top: 0;
+            left: 0;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
         }
 
         .social-icon:hover {
             transform: translateY(-5px) rotate(8deg);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
             color: #ffffff;
-            background-color: var(--accent-color);
+        }
+        
+        .social-icon:hover::before {
+            opacity: 1;
         }
 
         .testimonial-card {
@@ -290,6 +473,28 @@
             position: relative;
             z-index: 1;
             overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .border-l-3 {
+            border-left-width: 3px;
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            transform: translateY(-2px);
+        }
+        
+        /* Enhanced animation for section cards */
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .testimonial-card::before {
@@ -301,6 +506,18 @@
             height: 5px;
             background: linear-gradient(90deg, #3498db, #2980b9);
             z-index: 2;
+        }
+        
+        .testimonial-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233498db' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 0;
+            opacity: 0.3;
         }
 
         .testimonial-card:hover {
@@ -324,6 +541,7 @@
             font-size: 1rem;
             transition: all 0.3s ease;
             background-color: #f8fafc;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
         }
 
         .form-input:focus {
@@ -331,6 +549,10 @@
             outline: none;
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
             background-color: white;
+        }
+        
+        .form-input::placeholder {
+            color: #94a3b8;
         }
 
         .scroll-down {
@@ -348,6 +570,14 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-down:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
         }
 
         @keyframes bounce {
@@ -364,6 +594,18 @@
 
         .section {
             padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233498db' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
         }
         
         /* Glass morphism for testimonial avatars */
@@ -388,6 +630,134 @@
             width: 100%;
             height: 5px;
             background: linear-gradient(90deg, #3498db, #2980b9);
+        }
+        
+        /* Skill Bar Styling */
+        .skill-bar {
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), #2980b9);
+            border-radius: 4px;
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(
+                90deg,
+                rgba(255,255,255,0) 0%,
+                rgba(255,255,255,0.5) 50%,
+                rgba(255,255,255,0) 100%
+            );
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Timeline styling */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent-color), rgba(52, 152, 219, 0.1));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background: white;
+            position: relative;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-date {
+            position: absolute;
+            width: 120px;
+            text-align: center;
+            padding: 6px 0;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 30px;
+            top: 16px;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-date {
+            right: -60px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-date {
+            left: -60px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            right: -9px;
+            background: white;
+            border: 3px solid var(--accent-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.5);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -9px;
         }
 
         /* Responsive adjustments */
@@ -414,9 +784,75 @@
             
             .section-card {
                 padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-date,
+            .timeline-item:nth-child(even) .timeline-date {
+                right: auto;
+                left: -60px;
+                top: 40px;
+                width: 100px;
+                font-size: 0.85rem;
+            }
+            
+            .timeline-dot {
+                left: 22px;
+                right: auto;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 22px;
             }
         }
 
+        @media (max-width: 640px) {
+            /* Mobile optimization */
+            body {
+                padding-top: 60px;
+            }
+            
+            .section-card {
+                padding: 1.25rem;
+            }
+            
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .grid-cols-1 {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .testimonial-card {
+                margin-bottom: 1rem;
+            }
+            
+            .section-header {
+                margin-bottom: 1rem;
+            }
+            
+            .gap-8 {
+                gap: 1rem;
+            }
+        }
+        
         @media (max-width: 480px) {
             .section-header h2 {
                 font-size: 1.5rem;
@@ -431,6 +867,106 @@
                 padding-top: 60px;
             }
         }
+
+        /* Additional responsive improvements */
+    @media (max-width: 480px) {
+        .grid {
+            grid-gap: 1rem;
+        }
+        
+        .mt-12, .mt-16, .mt-20 {
+            margin-top: 2rem;
+        }
+        
+        .mb-12, .mb-16, .mb-20 {
+            margin-bottom: 2rem;
+        }
+        
+        .section-card {
+            padding: 1.25rem;
+        }
+        
+        .testimonial-card {
+            padding: 1.25rem;
+        }
+        
+        .section-header {
+            margin-bottom: 1rem;
+        }
+        
+        .section-header h2 {
+            padding-bottom: 0.5rem;
+        }
+    }
+
+    /* Fix container and spacing issues */
+    .container {
+        width: 100%;
+        max-width: 1280px; /* Wider container */
+    }
+    
+    @media (min-width: 1024px) {
+        .container {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+    
+    /* Fix section card spacing */
+    .section-card {
+        margin-bottom: 1.5rem;
+        height: 100%;
+        width: 100%;
+    }
+    
+    /* Fix grid issues */
+    .grid {
+        width: 100%;
+    }
+    
+    /* Remove excess margin */
+    .mt-20 {
+        margin-top: 4rem;
+    }
+    
+    .mb-20 {
+        margin-bottom: 4rem;
+    }
+    
+    /* Fix testimonial layout */
+    #testimonials .grid {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .testimonial-card {
+        width: 100%;
+        height: 100%;
+    }
+    
+    /* Fix contact form layout */
+    .contact-form {
+        width: 100%;
+    }
+    
+    .form-input {
+        width: 100%;
+    }
+    
+    /* Ensure everything is full width on mobile */
+    @media (max-width: 768px) {
+        .section-card,
+        .testimonial-card {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        
+        .grid {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
     </style>
 </head>
 
@@ -440,75 +976,129 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero gradient-bg relative">
+        <div class="animated-bg">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-                <div class="profile-image mb-6">
+                <div class="profile-image mb-8">
+                    <!-- Replace with actual image when available -->
                     <i class="ri-user-line text-6xl"></i>
                 </div>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">Angel Janice Okoth</h1>
-                <p class="text-xl md:text-2xl text-gray-600 mb-8">Entrepreneurial Leader in Agricultural Innovation
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-800 font-display">Angel Janice Okoth</h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Entrepreneurial Leader in <span class="text-accent-dark font-semibold">Agricultural Innovation</span>
                 </p>
                 <div class="flex flex-wrap justify-center gap-2 mb-8">
                     <span class="tag-pill">Agricultural Technology</span>
                     <span class="tag-pill">AI Implementation</span>
                     <span class="tag-pill">Sustainable Development</span>
                 </div>
-                <div class="flex justify-center gap-4">
-                    <a href="#about" class="cta-button">Learn More</a>
-                    <a href="./pages/projects.html" class="cta-button bg-gray-700 hover:bg-gray-800">View Projects</a>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                    <a href="#about" class="cta-button">
+                        <span class="relative z-10">Learn More</span>
+                    </a>
+                    <a href="./pages/projects.html" class="cta-button bg-gray-700 hover:bg-gray-800">
+                        <span class="relative z-10">View Projects</span>
+                    </a>
                 </div>
 
-                <div class="social-icons mt-8">
-                    <a href="https://www.linkedin.com/in/angel-janice-3a7204245/" target="_blank" class="social-icon">
+                <div class="social-icons mt-10">
+                    <a href="https://www.linkedin.com/in/angel-janice-3a7204245/" target="_blank" class="social-icon" aria-label="LinkedIn">
                         <i class="ri-linkedin-fill"></i>
                     </a>
-                    <a href="#" target="_blank" class="social-icon">
+                    <a href="#" target="_blank" class="social-icon" aria-label="Twitter">
                         <i class="ri-twitter-fill"></i>
                     </a>
-                    <a href="#" target="_blank" class="social-icon">
+                    <a href="#" target="_blank" class="social-icon" aria-label="GitHub">
                         <i class="ri-github-fill"></i>
                     </a>
-                    <a href="mailto:angelokoth8@gmail.com" class="social-icon">
+                    <a href="mailto:angelokoth8@gmail.com" class="social-icon" aria-label="Email">
                         <i class="ri-mail-fill"></i>
                     </a>
                 </div>
             </div>
         </div>
 
-        <a href="#about" class="scroll-down text-accent-color">
-            <i class="ri-arrow-down-line text-3xl text-accent-color"></i>
+        <a href="#about" class="scroll-down text-accent-color" aria-label="Scroll down">
+            <i class="ri-arrow-down-line text-2xl text-accent-color"></i>
         </a>
     </section>
 
-    <main class="container mx-auto max-w-6xl px-4 py-12">
+    <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <!-- About Section -->
         <section id="about" class="section-card" data-aos="fade-up">
             <div class="section-header">
-                <h2 class="text-3xl font-bold text-gray-800">About Me</h2>
+                <h2 class="text-3xl font-bold text-gray-800 font-display">About Me</h2>
             </div>
             <div class="flex flex-col md:flex-row gap-8 items-center">
                 <div class="md:w-1/3" data-aos="fade-right" data-aos-delay="100">
                     <div class="profile-image">
+                        <!-- Replace with actual image when available -->
                         <i class="ri-user-line text-6xl text-white"></i>
+                    </div>
+                    
+                    <!-- Skills bars -->
+                    <div class="mt-8 px-2">
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">AI Implementation</span>
+                                <span class="text-sm font-medium text-gray-700">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Agricultural Technology</span>
+                                <span class="text-sm font-medium text-gray-700">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Leadership</span>
+                                <span class="text-sm font-medium text-gray-700">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="md:w-2/3" data-aos="fade-left" data-aos-delay="200">
-                    <p class="text-gray-700 mb-4">
-                        I am a dynamic professional bridging entrepreneurship and psychology, adept at applying
+                    <p class="text-gray-700 mb-6 text-lg">
+                        I am a <span class="font-semibold text-primary-700">dynamic professional</span> bridging entrepreneurship and psychology, adept at applying
                         psychological principles to complex business challenges. My approach thrives in fast-paced
                         environments that demand adaptability and critical thinking.
                     </p>
-                    <p class="text-gray-700 mb-4">
-                        Currently, I'm pioneering AI technology solutions for smallholder farmers in Siaya, Kenya, with
+                    <p class="text-gray-700 mb-6 text-lg">
+                        Currently, I'm pioneering <span class="font-semibold text-primary-700">AI technology solutions</span> for smallholder farmers in Siaya, Kenya, with
                         an ambitious goal of increasing crop yields and optimizing water usage through sustainable
                         practices.
                     </p>
-                    <p class="text-gray-700">
+                    <p class="text-gray-700 text-lg">
                         My diverse experience spans human resources, sales, customer support, and community outreach,
                         providing a holistic perspective on agricultural technology implementation in East African
                         contexts.
                     </p>
+                    
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <span class="text-sm font-medium bg-blue-50 text-blue-700 px-3 py-1 rounded-full">#AgriTech</span>
+                        <span class="text-sm font-medium bg-green-50 text-green-700 px-3 py-1 rounded-full">#Sustainability</span>
+                        <span class="text-sm font-medium bg-purple-50 text-purple-700 px-3 py-1 rounded-full">#AIInnovation</span>
+                        <span class="text-sm font-medium bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full">#Leadership</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -516,147 +1106,280 @@
         <!-- Professional Journey Sections -->
         <div id="professional" class="grid md:grid-cols-2 gap-6 mt-12">
             <!-- Resume Section -->
-            <div class="section-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="section-card h-full" data-aos="fade-up" data-aos-delay="100">
                 <div class="section-header">
-                    <h2 class="text-2xl font-bold text-gray-800">Professional Path</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 font-display">Professional Path</h2>
                 </div>
-                <p class="text-gray-700 mb-4">
-                    Pursuing a Bachelor of Arts in Entrepreneurial Leadership at African Leadership University, expected
+                <p class="text-gray-700 mb-6 text-lg">
+                    Pursuing a <span class="font-semibold text-primary-700">Bachelor of Arts in Entrepreneurial Leadership</span> at African Leadership University, expected
                     graduation in 2026. My academic journey is complemented by practical expertise in data analysis,
                     research methods, and collaborative problem-solving.
                 </p>
-                <a href="./pages/resume.html" class="cta-button block text-center mt-4">
+                
+                <!-- Mini timeline -->
+                <div class="mt-8 space-y-4 mb-8">
+                    <div class="flex">
+                        <div class="flex flex-col items-center mr-4">
+                            <div class="w-3 h-3 bg-accent-dark rounded-full"></div>
+                            <div class="w-1 h-full bg-accent-light"></div>
+                        </div>
+                        <div class="pb-5">
+                            <p class="text-sm text-accent-dark font-bold">2023 - Present</p>
+                            <h3 class="text-lg font-semibold">African Leadership University</h3>
+                            <p class="text-gray-600">Bachelor of Arts, Entrepreneurial Leadership</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex flex-col items-center mr-4">
+                            <div class="w-3 h-3 bg-accent-dark rounded-full"></div>
+                            <div class="w-1 h-full bg-accent-light"></div>
+                        </div>
+                        <div>
+                            <p class="text-sm text-accent-dark font-bold">2022 - 2023</p>
+                            <h3 class="text-lg font-semibold">AgriTech Innovation Program</h3>
+                            <p class="text-gray-600">Agricultural Technology Specialist</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="./pages/resume.html" class="cta-button block text-center mt-auto w-full">
                     <i class="ri-file-text-line mr-2"></i> View Full CV
                 </a>
             </div>
 
             <!-- Projects Section -->
-            <div class="section-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="section-card h-full" data-aos="fade-up" data-aos-delay="200">
                 <div class="section-header">
-                    <h2 class="text-2xl font-bold text-gray-800">Key Project</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 font-display">Key Project</h2>
                 </div>
-                <h3 class="text-xl font-semibold mb-3 text-gray-700">FARMAI: Agricultural AI Innovation</h3>
-                <p class="text-gray-700 mb-4">
-                    Spearheading an AI-driven project to transform agricultural practices in Siaya, Kenya. Targeting a
-                    35% increase in crop yields and 40% reduction in water usage through cutting-edge precision farming
-                    technologies.
-                </p>
-                <a href="./pages/projects.html" class="cta-button block text-center mt-4">
+                <div class="p-5 bg-blue-50 rounded-lg mb-6 border-l-4 border-accent-dark">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">FARMAI: Agricultural AI Innovation</h3>
+                    <p class="text-gray-700 mb-4 text-lg">
+                        Spearheading an AI-driven project to transform agricultural practices in Siaya, Kenya. Targeting a
+                        <span class="font-semibold text-green-600">35% increase in crop yields</span> and 
+                        <span class="font-semibold text-blue-600">40% reduction in water usage</span> through cutting-edge precision farming
+                        technologies.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="text-xs font-bold bg-white text-blue-600 px-2 py-1 rounded shadow-sm">AI Technology</span>
+                        <span class="text-xs font-bold bg-white text-green-600 px-2 py-1 rounded shadow-sm">Sustainability</span>
+                        <span class="text-xs font-bold bg-white text-purple-600 px-2 py-1 rounded shadow-sm">Precision Farming</span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-3xl font-bold text-accent-dark mb-1">35%</div>
+                        <p class="text-sm text-gray-600">Crop Yield Increase</p>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-3xl font-bold text-accent-dark mb-1">40%</div>
+                        <p class="text-sm text-gray-600">Water Usage Reduction</p>
+                    </div>
+                </div>
+                
+                <a href="./pages/projects.html" class="cta-button block text-center mt-auto w-full">
                     <i class="ri-eye-line mr-2"></i> Explore Projects
                 </a>
             </div>
         </div>
 
         <!-- Testimonials Section -->
-        <section id="testimonials" class="mt-16" data-aos="fade-up">
-            <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">What People Say</h2>
+        <section id="testimonials" class="mt-20 mb-20" data-aos="fade-up">
+    <div class="section-header text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800 font-display inline-block relative">
+            What People Say
+            <span class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-accent-dark to-transparent"></span>
+        </h2>
+    </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="ri-double-quotes-l quote-icon"></i>
-                    <p class="text-gray-700 mb-4 mt-4">Angel's innovative approach to agricultural technology has
-                        revolutionized our farming practices. The results have been remarkable.</p>
-                    <div class="flex items-center mt-4">
-                        <div
-                            class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-500 mr-3">
-                            <i class="ri-user-3-line"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800">Sarah Johnson</h4>
-                            <p class="text-sm text-gray-500">Farm Cooperative Leader</p>
-                        </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="testimonial-card group hover:border-accent-dark transition-all" data-aos="fade-up" data-aos-delay="100">
+            <div class="absolute top-0 right-0 w-20 h-20 bg-accent-light rounded-bl-3xl z-0 group-hover:bg-accent-light/30 transition-all"></div>
+            <i class="ri-double-quotes-l text-5xl text-accent-dark/20 group-hover:text-accent-dark/30 transition-all"></i>
+            <p class="text-gray-700 mb-6 mt-4 text-lg relative z-10">Angel's innovative approach to agricultural technology has
+                revolutionized our farming practices. The results have been remarkable.</p>
+            <div class="mt-auto pt-4 border-t border-gray-100">
+                <div class="flex items-center">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white mr-4 shadow-lg transform group-hover:scale-110 transition-all">
+                        <i class="ri-user-3-line text-lg"></i>
                     </div>
-                </div>
-
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="ri-double-quotes-l quote-icon"></i>
-                    <p class="text-gray-700 mb-4 mt-4">Working with Angel has been transformative for our community. Her
-                        understanding of both technology and agriculture creates powerful solutions.</p>
-                    <div class="flex items-center mt-4">
-                        <div
-                            class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-500 mr-3">
-                            <i class="ri-user-3-line"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800">Michael Ochieng</h4>
-                            <p class="text-sm text-gray-500">Community Leader, Siaya</p>
-                        </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800">Sarah Johnson</h4>
+                        <p class="text-sm text-accent-dark">Farm Cooperative Leader</p>
                     </div>
-                </div>
-
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-                    <i class="ri-double-quotes-l quote-icon"></i>
-                    <p class="text-gray-700 mb-4 mt-4">Angel's dedication to sustainable agricultural practices and her
-                        innovative use of AI technology sets a new standard in the industry.</p>
-                    <div class="flex items-center mt-4">
-                        <div
-                            class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-500 mr-3">
-                            <i class="ri-user-3-line"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800">Dr. Emily Wanjiku</h4>
-                            <p class="text-sm text-gray-500">Agricultural Research Institute</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Research and Contact Sections -->
-        <div class="grid md:grid-cols-2 gap-6 mt-12">
-            <!-- Reports Section -->
-            <div class="section-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="section-header">
-                    <h2 class="text-2xl font-bold text-gray-800">Research Insights</h2>
-                </div>
-                <p class="text-gray-700 mb-4">
-                    Comprehensive research reports on AI applications in agriculture, focusing on innovative solutions
-                    for smallholder farmers in Siaya, Kenya. Covering critical areas like water conservation, technology
-                    implementation, and farmer training methodologies.
-                </p>
-                <a href="./pages/reports.html" class="cta-button block text-center mt-4">
-                    <i class="ri-file-chart-line mr-2"></i> View Reports
-                </a>
-            </div>
-
-            <!-- Contact Section -->
-            <div id="contact" class="section-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="section-header">
-                    <h2 class="text-2xl font-bold text-gray-800">Get in Touch</h2>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i class="ri-mail-line contact-icon"></i>
-                            <span>angelokoth8@gmail.com</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="ri-phone-line contact-icon"></i>
-                            <span>+254 757 027 503 / +250 791 903 569</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="ri-linkedin-box-line contact-icon"></i>
-                            <a href="https://www.linkedin.com/in/angel-janice-3a7204245/" target="_blank"
-                                class="text-blue-600 hover:underline">LinkedIn Profile</a>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="ri-map-pin-line contact-icon"></i>
-                            <span>Kigali, Rwanda</span>
-                        </div>
-                    </div>
-
-                    <form class="contact-form">
-                        <input type="text" placeholder="Your Name" class="form-input" required>
-                        <input type="email" placeholder="Your Email" class="form-input" required>
-                        <textarea placeholder="Your Message" class="form-input" rows="4" required></textarea>
-                        <button type="submit" class="cta-button w-full">
-                            <i class="ri-send-plane-fill mr-2"></i> Send Message
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
+
+        <div class="testimonial-card group hover:border-accent-dark transition-all" data-aos="fade-up" data-aos-delay="200">
+            <div class="absolute top-0 right-0 w-20 h-20 bg-accent-light rounded-bl-3xl z-0 group-hover:bg-accent-light/30 transition-all"></div>
+            <i class="ri-double-quotes-l text-5xl text-accent-dark/20 group-hover:text-accent-dark/30 transition-all"></i>
+            <p class="text-gray-700 mb-6 mt-4 text-lg relative z-10">Working with Angel has been transformative for our community. Her
+                understanding of both technology and agriculture creates powerful solutions.</p>
+            <div class="mt-auto pt-4 border-t border-gray-100">
+                <div class="flex items-center">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white mr-4 shadow-lg transform group-hover:scale-110 transition-all">
+                        <i class="ri-user-3-line text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800">Michael Ochieng</h4>
+                        <p class="text-sm text-accent-dark">Community Leader, Siaya</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card group hover:border-accent-dark transition-all" data-aos="fade-up" data-aos-delay="300">
+            <div class="absolute top-0 right-0 w-20 h-20 bg-accent-light rounded-bl-3xl z-0 group-hover:bg-accent-light/30 transition-all"></div>
+            <i class="ri-double-quotes-l text-5xl text-accent-dark/20 group-hover:text-accent-dark/30 transition-all"></i>
+            <p class="text-gray-700 mb-6 mt-4 text-lg relative z-10">Angel's dedication to sustainable agricultural practices and her
+                innovative use of AI technology sets a new standard in the industry.</p>
+            <div class="mt-auto pt-4 border-t border-gray-100">
+                <div class="flex items-center">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white mr-4 shadow-lg transform group-hover:scale-110 transition-all">
+                        <i class="ri-user-3-line text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800">Dr. Emily Wanjiku</h4>
+                        <p class="text-sm text-accent-dark">Agricultural Research Institute</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Research and Contact Sections -->
+        <!-- Research Insights Section - Full Width -->
+<section class="mt-16" data-aos="fade-up">
+    <div class="section-card overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+        <div class="absolute right-0 top-0 w-32 h-32 bg-accent-light/30 rounded-bl-full -mr-10 -mt-10 transition-all duration-500 group-hover:scale-125"></div>
+        
+        <div class="section-header mb-6">
+            <h2 class="text-2xl font-bold text-gray-800 font-display">Research Insights</h2>
+        </div>
+        
+        <p class="text-gray-700 mb-8 text-lg relative z-10">
+            Comprehensive research reports on AI applications in agriculture, focusing on innovative solutions
+            for smallholder farmers in Siaya, Kenya.
+        </p>
+        
+        <div class="space-y-5 mb-8">
+            <div class="flex items-start p-4 bg-gradient-to-r from-accent-light/50 to-transparent rounded-lg border-l-4 border-accent-dark transition-all hover:shadow-md">
+                <div class="bg-white p-3 rounded-full shadow-md text-accent-dark mr-4">
+                    <i class="ri-file-chart-line text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-800">Water Conservation Strategies</h3>
+                    <p class="text-gray-600">Analysis of AI-driven irrigation systems and their impact</p>
+                </div>
+            </div>
+            
+            <div class="flex items-start p-4 bg-gradient-to-r from-accent-light/50 to-transparent rounded-lg border-l-4 border-accent-dark transition-all hover:shadow-md">
+                <div class="bg-white p-3 rounded-full shadow-md text-accent-dark mr-4">
+                    <i class="ri-file-chart-line text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-800">Technology Implementation Framework</h3>
+                    <p class="text-gray-600">Guidelines for adopting agricultural technology in rural areas</p>
+                </div>
+            </div>
+            
+            <div class="flex items-start p-4 bg-gradient-to-r from-accent-light/50 to-transparent rounded-lg border-l-4 border-accent-dark transition-all hover:shadow-md">
+                <div class="bg-white p-3 rounded-full shadow-md text-accent-dark mr-4">
+                    <i class="ri-file-chart-line text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-800">Farmer Training Methodologies</h3>
+                    <p class="text-gray-600">Best practices for knowledge transfer in agricultural communities</p>
+                </div>
+            </div>
+        </div>
+        
+        <a href="./pages/reports.html" class="cta-button block text-center mt-auto w-full">
+            <i class="ri-file-chart-line mr-2"></i> View Reports
+        </a>
+    </div>
+</section>
+
+<!-- Contact Section - Full Width -->
+<section class="mt-12 mb-16" data-aos="fade-up">
+    <div id="contact" class="section-card overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+        <div class="absolute right-0 bottom-0 w-40 h-40 bg-accent-light/20 rounded-tl-full transition-all duration-500 group-hover:scale-125"></div>
+        
+        <div class="section-header mb-6">
+            <h2 class="text-2xl font-bold text-gray-800 font-display">Get in Touch</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4 relative z-10">
+                <div class="flex items-center p-4 rounded-lg bg-white shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 border-l-3 border-accent-dark">
+                    <div class="bg-accent-light w-12 h-12 rounded-full flex items-center justify-center text-accent-dark mr-4">
+                        <i class="ri-mail-line text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase font-medium">Email</p>
+                        <span class="text-gray-700 font-medium">angelokoth8@gmail.com</span>
+                    </div>
+                </div>
+                
+                <div class="flex items-center p-4 rounded-lg bg-white shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 border-l-3 border-accent-dark">
+                    <div class="bg-accent-light w-12 h-12 rounded-full flex items-center justify-center text-accent-dark mr-4">
+                        <i class="ri-phone-line text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase font-medium">Phone</p>
+                        <span class="text-gray-700 font-medium">+254 757 027 503</span>
+                    </div>
+                </div>
+                
+                <div class="flex items-center p-4 rounded-lg bg-white shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 border-l-3 border-accent-dark">
+                    <div class="bg-accent-light w-12 h-12 rounded-full flex items-center justify-center text-accent-dark mr-4">
+                        <i class="ri-linkedin-box-line text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase font-medium">LinkedIn</p>
+                        <a href="https://www.linkedin.com/in/angel-janice-3a7204245/" target="_blank"
+                            class="text-accent-dark hover:text-accent font-medium">Angel Janice Okoth</a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center p-4 rounded-lg bg-white shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 border-l-3 border-accent-dark">
+                    <div class="bg-accent-light w-12 h-12 rounded-full flex items-center justify-center text-accent-dark mr-4">
+                        <i class="ri-map-pin-line text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase font-medium">Location</p>
+                        <span class="text-gray-700 font-medium">Kigali, Rwanda</span>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form relative z-10">
+                <div class="relative mb-4">
+                    <input type="text" placeholder="Your Name" class="form-input pl-10 focus:ring-2 focus:ring-accent-light" required>
+                    <i class="ri-user-line absolute left-3 top-3 text-accent-dark/50"></i>
+                </div>
+                
+                <div class="relative mb-4">
+                    <input type="email" placeholder="Your Email" class="form-input pl-10 focus:ring-2 focus:ring-accent-light" required>
+                    <i class="ri-mail-line absolute left-3 top-3 text-accent-dark/50"></i>
+                </div>
+                
+                <div class="relative mb-4">
+                    <textarea placeholder="Your Message" class="form-input pl-10 focus:ring-2 focus:ring-accent-light" rows="4" required></textarea>
+                    <i class="ri-chat-1-line absolute left-3 top-3 text-accent-dark/50"></i>
+                </div>
+                
+                <button type="submit" class="cta-button w-full">
+                    <i class="ri-send-plane-fill mr-2"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
     </main>
 
     <!-- Footer Container -->
@@ -701,6 +1424,17 @@
             // Load components
             loadComponent('./components/navbar.html', 'navbar-container');
             loadComponent('./components/footer.html', 'footer-container');
+            
+            // Initialize skill bars
+            setTimeout(() => {
+                document.querySelectorAll('.skill-progress').forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 300);
+                });
+            }, 1000);
         });
     </script>
 
