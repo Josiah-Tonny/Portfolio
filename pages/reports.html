@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI in Agriculture Research by Angel Janice Okoth, focusing on solutions for smallholder farmers">
+    <title>Angel Janice Okoth - AI in Agriculture Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        accent: {
+                            100: '#e0f2fe',
+                            500: '#3498db',
+                            600: '#2980b9',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --background-color: #f4f6f7;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            min-height: 100vh;
+            padding-top: 90px;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            font-weight: 700;
+        }
+
+        main>p {
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .report-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 2rem;
+            background-color: #f9fafb;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .report-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            border-color: #2563eb;
+        }
+
+        .report-card h3 {
+            font-size: 1.5rem;
+            color: #1a202c;
+            margin-bottom: 0.75rem;
+        }
+
+        .report-card p {
+            font-size: 1rem;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .report-link {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .report-link:hover {
+            background-color: #1e3a8a;
+            transform: translateY(-2px);
+        }
+
+        .research-focus {
+            background-color: #f0f4f8;
+            border-left: 4px solid #2563eb;
+            padding: 1.5rem 2rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 2rem;
+        }
+
+        .research-focus h3 {
+            font-size: 1.6rem;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        .research-focus p {
+            font-size: 1rem;
+            color: #4b5563;
+        }
+
+        /* Web View Enhancements */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .report-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 2rem;
+        }
+
+        .report-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .report-link {
+            margin-top: auto;
+        }
+
+        .research-focus {
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .research-focus h3 {
+            font-size: 1.6rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+    
+    <main id="main-content" class="mx-auto px-4 py-6">
+        <h1 class="text-4xl md:text-4xl font-bold mb-3 text-center">AI-Driven Agricultural Research</h1>
+        <p class="text-xl text-center text-gray-600 max-w-2xl mx-auto mb-8">Innovative Solutions for Smallholder Farmers in Siaya, Kenya</p>
+
+        <section>
+            <h2>Research Reports</h2>
+
+            <div class="report-card">
+                <h3>AI Implementation in Small-Scale Agriculture</h3>
+                <p>Explore how AI-driven technologies can revolutionize smallholder farming practices in Siaya County, Kenya.</p>
+                <a href="../assets/documents/project-report-1.pdf" class="report-link" target="_blank" rel="noopener noreferrer">
+                    Read Full Report
+                </a>
+            </div>
+
+            <div class="report-card">
+                <h3>Water Conservation through AI Monitoring</h3>
+                <p>Discover innovative AI solutions for optimizing water usage in drought-prone agricultural regions.</p>
+                <a href="../assets/documents/project-report-2.pdf" class="report-link" target="_blank" rel="noopener noreferrer">
+                    Learn More
+                </a>
+            </div>
+
+            <div class="report-card">
+                <h3>Technology Adoption in Traditional Agricultural Settings</h3>
+                <p>Understand effective strategies for introducing technology in rural farming communities.</p>
+                <a href="../assets/documents/project-report-3.pdf" class="report-link" target="_blank" rel="noopener noreferrer">
+                    Download Report
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Research Focus Areas</h2>
+
+            <div class="research-focus">
+                <h3>Precision Agriculture in Resource-Limited Environments</h3>
+                <p>Adapting advanced agricultural technologies to the unique challenges faced by smallholder farmers.</p>
+            </div>
+
+            <div class="research-focus">
+                <h3>AI-Driven Weather Prediction</h3>
+                <p>Enhancing weather prediction accuracy to support data-driven farming decisions in East Africa.</p>
+            </div>
+
+            <div class="research-focus">
+                <h3>Cross-Cultural Technology Implementation</h3>
+                <p>Developing strategies for introducing technology in traditional farming communities with cultural sensitivity.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Additional Performance Optimization -->
+    <link rel="preload" href="../assets/js/script.js" as="script">
+    <script src="../assets/js/script.js" defer></script>
+    
+    <!-- Navbar Loading Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to load component with retry logic
+            function loadComponent(componentPath, containerId, retryCount = 0) {
+                fetch(componentPath)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Failed to load ${componentPath}: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        document.getElementById(containerId).innerHTML = data;
+                        
+                        // Execute any scripts in the component
+                        const scripts = document.getElementById(containerId).getElementsByTagName('script');
+                        Array.from(scripts).forEach(script => {
+                            eval(script.innerHTML);
+                        });
+                    })
+                    .catch(error => {
+                        console.error(`Error loading ${componentPath}:`, error);
+                        if (retryCount < 2) {
+                            console.log(`Retrying ${componentPath} (attempt ${retryCount + 1})...`);
+                            setTimeout(() => loadComponent(componentPath, containerId, retryCount + 1), 1000);
+                        } else {
+                            document.getElementById(containerId).innerHTML = 
+                                `<div class="bg-red-100 text-red-700 p-4 rounded">
+                                    Failed to load ${componentPath.split('/').pop()}. 
+                                    <a href="../index.html" class="underline">Return Home</a>
+                                </div>`;
+                        }
+                    });
+            }
+
+            // Load components
+            loadComponent('../components/navbar.html', 'navbar-container');
+            loadComponent('../components/footer.html', 'footer-container');
+        });
+    </script>
+</body>
+
+</html>

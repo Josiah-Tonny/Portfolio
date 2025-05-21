@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel Janice Okoth | Portfolio</title>
+    <!-- Add base tag for GitHub Pages compatibility -->
+    <base href="./">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fixed CSS file paths -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eef5ff',
+                            100: '#d9e8ff',
+                            200: '#bcd6ff',
+                            300: '#8abafe',
+                            400: '#5496fc',
+                            500: '#2c75f8',
+                            600: '#1e58ed',
+                            700: '#1a46da',
+                            800: '#1c3bb1',
+                            900: '#1d368a',
+                            950: '#152154',
+                        },
+                        accent: {
+                            light: 'rgba(52, 152, 219, 0.1)',
+                            DEFAULT: '#3498db',
+                            dark: '#2980b9',
+                        }
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                    },
+                    boxShadow: {
+                        'soft': '0 5px 15px rgba(0, 0, 0, 0.05)',
+                        'hover': '0 15px 30px rgba(0, 0, 0, 0.1)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                          '0%, 100%': { transform: 'translateY(0)' },
+                          '50%': { transform: 'translateY(-10px)' },
+                        }
+                    },
+                    zIndex: {
+                        'max-nav': '1000',
+                        'max-menu': '1001', 
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --accent-light: rgba(52, 152, 219, 0.1);
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            padding-top: 80px;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+        }
+        
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233498db' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.08) 0%, rgba(41, 128, 185, 0.08) 100%);
+            opacity: 0.9;
+            z-index: 1;
+        }
+
+        .section-card {
+            background-color: var(--card-background);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .section-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .section-header h2 {
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 60%;
+            background: linear-gradient(to right, var(--accent-color), transparent);
+        }
+
+        .profile-image {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 0 auto;
+            box-shadow: 0 15px 30px rgba(0, 242, 254, 0.2);
+            overflow: hidden;
+            border: 5px solid white;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-icon {
+            color: var(--accent-color);
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .tag-pill {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--accent-color);
+            border-radius: 9999px;
+            padding: 0.35rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .tag-pill:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 8px;
+            padding: 0.85rem 1.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+        
+        .cta-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cta-button:hover::after {
+            transform: translateX(0);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            background-color: #ffffff;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) rotate(8deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            color: #ffffff;
+            background-color: var(--accent-color);
+        }
+
+        .testimonial-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            z-index: 2;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: rgba(52, 152, 219, 0.2);
+            margin-bottom: -1.5rem;
+            display: block;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f8fafc;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            background-color: white;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            z-index: 10;
+            background-color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-30px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-15px) translateX(-50%);
+            }
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+        
+        /* Glass morphism for testimonial avatars */
+        .testimonial-avatar {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Enhanced footer styling */
+        footer {
+            background: linear-gradient(to right, #1e293b, #334155);
+            color: #f1f5f9;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                text-align: center;
+                padding-top: 30px;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .cta-button {
+                width: 100%;
+                margin-bottom: 0.5rem;
+                text-align: center;
+            }
+
+            .flex.justify-center.gap-4 {
+                flex-direction: column;
+            }
+            
+            .section-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .testimonial-card {
+                margin-bottom: 1.5rem;
+                padding: 1.5rem;
+            }
+            
+            body {
+                padding-top: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero gradient-bg relative">
+        <div class="hero-overlay"></div>
+        <div class="hero-content container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <div class="profile-image mb-6">
+                    <i class="ri-user-line text-6xl"></i>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-800">Angel Janice Okoth</h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8">Entrepreneurial Leader in Agricultural Innovation
+                </p>
+                <div class="flex flex-wrap justify-center gap-2 mb-8">
+                    <span class="tag-pill">Agricultural Technology</span>
+                    <span class="tag-pill">AI Implementation</span>
+                    <span class="tag-pill">Sustainable Development</span>
+                </div>
+                <div class="flex justify-center gap-4">
+                    <a href="#about" class="cta-button">Learn More</a>
+                    <a href="./pages/projects.html" class="cta-button bg-gray-700 hover:bg-gray-800">View Projects</a>
+                </div>
+
+                <div class="social-icons mt-8">
+                    <a href="https://www.linkedin.com/in/angel-janice-3a7204245/" target="_blank" class="social-icon">
+                        <i class="ri-linkedin-fill"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-icon">
+                        <i class="ri-twitter-fill"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-icon">
+                        <i class="ri-github-fill"></i>
+                    </a>
+                    <a href="mailto:angelokoth8@gmail.com" class="social-icon">
+                        <i class="ri-mail-fill"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <a href="#about" class="scroll-down text-accent-color">
+            <i class="ri-arrow-down-line text-3xl text-accent-color"></i>
+        </a>
+    </section>
+
+    <main class="container mx-auto max-w-6xl px-4 py-12">
+        <!-- About Section -->
+        <section id="about" class="section-card" data-aos="fade-up">
+            <div class="section-header">
+                <h2 class="text-3xl font-bold text-gray-800">About Me</h2>
+            </div>
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-1/3" data-aos="fade-right" data-aos-delay="100">
+                    <div class="profile-image">
+                        <i class="ri-user-line text-6xl text-white"></i>
+                    </div>
+                </div>
+                <div class="md:w-2/3" data-aos="fade-left" data-aos-delay="200">
+                    <p class="text-gray-700 mb-4">
+                        I am a dynamic professional bridging entrepreneurship and psychology, adept at applying
+                        psychological principles to complex business challenges. My approach thrives in fast-paced
+                        environments that demand adaptability and critical thinking.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        Currently, I'm pioneering AI technology solutions for smallholder farmers in Siaya, Kenya, with
+                        an ambitious goal of increasing crop yields and optimizing water usage through sustainable
+                        practices.
+                    </p>
+                    <p class="text-gray-700">
+                        My diverse experience spans human resources, sales, customer support, and community outreach,
+                        providing a holistic perspective on agricultural technology implementation in East African
+                        contexts.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Journey Sections -->
+        <div id="professional" class="grid md:grid-cols-2 gap-6 mt-12">
+            <!-- Resume Section -->
+            <div class="section-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="section-header">
+                    <h2 class="text-2xl font-bold text-gray-800">Professional Path</h2>
+                </div>
+                <p class="text-gray-700 mb-4">
+                    Pursuing a Bachelor of Arts in Entrepreneurial Leadership at African Leadership University, expected
+                    graduation in 2026. My academic journey is complemented by practical expertise in data analysis,
+                    research methods, and collaborative problem-solving.
+                </p>
+                <a href="./pages/resume.html" class="cta-button block text-center mt-4">
+                    <i class="ri-file-text-line mr-2"></i> View Full CV
+                </a>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="section-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="section-header">
+                    <h2 class="text-2xl font-bold text-gray-800">Key Project</h2>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 text-gray-700">FARMAI: Agricultural AI Innovation</h3>
+                <p class="text-gray-700 mb-4">
+                    Spearheading an AI-driven project to transform agricultural practices in Siaya, Kenya. Targeting a
+                    35% increase in crop yields and 40% reduction in water usage through cutting-edge precision farming
+                    technologies.
+                </p>
+                <a href="./pages/projects.html" class="cta-button block text-center mt-4">
+                    <i class="ri-eye-line mr-2"></i> Explore Projects
+                </a>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="mt-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">What People Say</h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="ri-double-quotes-l quote-icon"></i>
+                    <p class="text-gray-700 mb-4 mt-4">Angel's innovative approach to agricultural technology has
+                        revolutionized our farming practices. The results have been remarkable.</p>
+                    <div class="flex items-center mt-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-500 mr-3">
+                            <i class="ri-user-3-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Sarah Johnson</h4>
+                            <p class="text-sm text-gray-500">Farm Cooperative Leader</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="ri-double-quotes-l quote-icon"></i>
+                    <p class="text-gray-700 mb-4 mt-4">Working with Angel has been transformative for our community. Her
+                        understanding of both technology and agriculture creates powerful solutions.</p>
+                    <div class="flex items-center mt-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-500 mr-3">
+                            <i class="ri-user-3-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Michael Ochieng</h4>
+                            <p class="text-sm text-gray-500">Community Leader, Siaya</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="ri-double-quotes-l quote-icon"></i>
+                    <p class="text-gray-700 mb-4 mt-4">Angel's dedication to sustainable agricultural practices and her
+                        innovative use of AI technology sets a new standard in the industry.</p>
+                    <div class="flex items-center mt-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-500 mr-3">
+                            <i class="ri-user-3-line"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Dr. Emily Wanjiku</h4>
+                            <p class="text-sm text-gray-500">Agricultural Research Institute</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research and Contact Sections -->
+        <div class="grid md:grid-cols-2 gap-6 mt-12">
+            <!-- Reports Section -->
+            <div class="section-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="section-header">
+                    <h2 class="text-2xl font-bold text-gray-800">Research Insights</h2>
+                </div>
+                <p class="text-gray-700 mb-4">
+                    Comprehensive research reports on AI applications in agriculture, focusing on innovative solutions
+                    for smallholder farmers in Siaya, Kenya. Covering critical areas like water conservation, technology
+                    implementation, and farmer training methodologies.
+                </p>
+                <a href="./pages/reports.html" class="cta-button block text-center mt-4">
+                    <i class="ri-file-chart-line mr-2"></i> View Reports
+                </a>
+            </div>
+
+            <!-- Contact Section -->
+            <div id="contact" class="section-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="section-header">
+                    <h2 class="text-2xl font-bold text-gray-800">Get in Touch</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="ri-mail-line contact-icon"></i>
+                            <span>angelokoth8@gmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="ri-phone-line contact-icon"></i>
+                            <span>+254 757 027 503 / +250 791 903 569</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="ri-linkedin-box-line contact-icon"></i>
+                            <a href="https://www.linkedin.com/in/angel-janice-3a7204245/" target="_blank"
+                                class="text-blue-600 hover:underline">LinkedIn Profile</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="ri-map-pin-line contact-icon"></i>
+                            <span>Kigali, Rwanda</span>
+                        </div>
+                    </div>
+
+                    <form class="contact-form">
+                        <input type="text" placeholder="Your Name" class="form-input" required>
+                        <input type="email" placeholder="Your Email" class="form-input" required>
+                        <textarea placeholder="Your Message" class="form-input" rows="4" required></textarea>
+                        <button type="submit" class="cta-button w-full">
+                            <i class="ri-send-plane-fill mr-2"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Component Loading Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load Navbar with error handling and retry
+            function loadComponent(componentPath, containerId, retryCount = 0) {
+                fetch(componentPath)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Failed to load ${componentPath}: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        document.getElementById(containerId).innerHTML = data;
+                        
+                        // Execute any scripts in the component
+                        const scripts = document.getElementById(containerId).getElementsByTagName('script');
+                        Array.from(scripts).forEach(script => {
+                            eval(script.innerHTML);
+                        });
+                    })
+                    .catch(error => {
+                        console.error(`Error loading ${componentPath}:`, error);
+                        if (retryCount < 2) {
+                            console.log(`Retrying ${componentPath} (attempt ${retryCount + 1})...`);
+                            setTimeout(() => loadComponent(componentPath, containerId, retryCount + 1), 1000);
+                        } else {
+                            document.getElementById(containerId).innerHTML = 
+                                `<div class="bg-red-100 text-red-700 p-4 rounded">
+                                    Failed to load ${componentPath.split('/').pop()}. 
+                                    <button onclick="window.location.reload()" class="underline">Refresh</button>
+                                </div>`;
+                        }
+                    });
+            }
+
+            // Load components
+            loadComponent('./components/navbar.html', 'navbar-container');
+            loadComponent('./components/footer.html', 'footer-container');
+        });
+    </script>
+
+    <!-- Other scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

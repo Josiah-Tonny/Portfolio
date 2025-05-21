@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport"content="width=device-width, initial-scale=1.0"/>
+  <title>Angel Janice Okoth | Portfolio</title>
+  
+  <!-- Add base URL tag to handle GitHub Pages deployment -->
+  <base href="">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          spacing: {
+            '128': '32rem',
+          },
+          zIndex: {
+            'max-nav': '1000',
+            'max-menu': '1001', 
+          },
+        },
+      },
+    };
+  </script>
+
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"rel="stylesheet"/>
+</head>
+
+<body class="mt-20">
+  <!-- Navbar Component Start -->
+  <nav class="fixed top-5 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-95 backdrop-blur-md rounded-full px-5 py-3 shadow-md z-[1000] flex items-center w-[95%] max-w-4xl border border-white border-opacity-20">
+    <!-- Logo -->
+    <div class="flex-1">
+      <a href="./index.html" class="flex items-center space-x-2 text-indigo-600 hover:text-indigo-700 transition font-semibold">
+        <i class="ri-seedling-line text-xl"></i>
+        <h1>AJO</h1>
+      </a>
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex justify-center space-x-1">
+      <a href="index.html" class="nav-link px-3 py-2 rounded-full transition font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50">Home</a>
+      <a href="../index.html#about" class="nav-link px-3 py-2 rounded-full transition font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50">About</a>
+      
+      <!-- Dropdown Menu -->
+      <div class="relative group">
+        <button class="nav-link px-3 py-2 rounded-full transition font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50 flex items-center">
+          Resume <i class="ri-arrow-down-s-line ml-1"></i>
+        </button>
+        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg py-2 w-40 mt-1 z-[1002]">
+          <a href="../pages/timeline.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Timeline</a>
+          <a href="../pages/projects.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Projects</a>
+          <a href="../pages/reports.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Reports</a>
+          <a href="../pages/resume.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Resume</a>
+        </div>
+      </div>
+      
+      <a href="../index.html#testimonials" class="nav-link px-3 py-2 rounded-full transition font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50">Testimonials</a>
+      <a href="../index.html#contact" class="nav-link px-3 py-2 rounded-full transition font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50">Contact</a>
+    </div>
+    
+    <!-- Mobile Menu Button -->
+    <div class="flex-1 flex justify-end md:hidden">
+      <button id="mobile-menu-button" class="p-2 rounded-full bg-indigo-100 text-indigo-600 hover:bg-indigo-200 transition">
+        <i class="ri-menu-line text-xl"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed hidden left-0 right-0 top-20 bg-white bg-opacity-95 backdrop-blur-md rounded-xl shadow-lg p-4 mx-4 z-[1001] border border-white border-opacity-20">
+    <a href="../index.html" class="mobile-nav-link block py-3 px-4 rounded-lg font-medium text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 mb-2">Home</a>
+    <a href="../index.html#about" class="mobile-nav-link block py-3 px-4 rounded-lg font-medium text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 mb-2">About</a>
+    <a href="../index.html#testimonials" class="mobile-nav-link block py-3 px-4 rounded-lg font-medium text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 mb-2">Testimonials</a>
+    <a href="../index.html#contact" class="mobile-nav-link block py-3 px-4 rounded-lg font-medium text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 mb-2">Contact</a>
+    
+    <div class="py-2 px-4 font-semibold text-indigo-600 border-t border-b border-gray-100 my-2 text-center">Resume</div>
+    
+    <a href="../pages/timeline.html" class="mobile-nav-link block py-3 px-4 rounded-lg font-medium text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 mb-2">Timeline</a>
+    <a href="../pages/projects.html" class="mobile-nav-link block py-3 px-4 rounded-lg font-medium text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 mb-2">Projects</a>
+    <a href="../pages/reports.html" class="mobile-nav-link block py-3 px-4 rounded-lg font-medium text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 mb-2">Reports</a>
+    <a href="../pages/resume.html" class="mobile-nav-link block py-3 px-4 rounded-lg font-medium text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 mb-2">Resume</a>
+  </div>
+  <!-- Navbar Component End -->
+
+  <!-- Navbar Script - Do not remove -->
+  <script>
+    // Immediately execute the mobile menu toggle functionality
+    (function() {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuButton && mobileMenu) {
+        // Toggle mobile menu when button is clicked
+        mobileMenuButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close menu when clicking on a mobile link
+        const mobileLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          if (!mobileMenu.classList.contains('hidden') && 
+              !mobileMenu.contains(event.target) &&
+              !mobileMenuButton.contains(event.target)) {
+            mobileMenu.classList.add('hidden');
+          }
+        });
+      }
+    })();
+    
+    // Handle active link highlighting when DOM is fully loaded - Fixed for GitHub Pages
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+      
+      // Fix paths for proper link detection, accounting for GitHub Pages URL structure
+      function fixPath(path) {
+        // Extract the last part of the path for GitHub Pages compatibility
+        const pathParts = path.split('/');
+        const lastPart = pathParts[pathParts.length - 1] || '';
+        
+        if (lastPart === '' || lastPart === 'index.html') {
+          return 'index.html';
+        }
+        return lastPart;
+      }
+      
+      const fixedCurrentPath = fixPath(currentPath);
+      
+      // Highlight current page link
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+        
+        // Extract just the filename from the href
+        const linkParts = href.split('/');
+        const linkPath = linkParts[linkParts.length - 1].split('#')[0];
+        
+        if (fixedCurrentPath === linkPath || 
+            (fixedCurrentPath === 'index.html' && linkPath === 'index.html' && window.location.hash && href.includes(window.location.hash))) {
+          link.classList.add('bg-indigo-100', 'text-indigo-600', 'font-semibold');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project portfolio showcasing Angel Janice Okoth's work in AI and sustainable agricultural practices">
+    <title>Projects Dashboard - Angel Janice Okoth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2c3e50',
+                            dark: '#1a2530',
+                        },
+                        accent: {
+                            light: 'rgba(52, 152, 219, 0.1)',
+                            DEFAULT: '#3498db',
+                            dark: '#2980b9',
+                        }
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --background-color: #f4f6f7;
+            --card-background: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding-top: 90px;
+        }
+
+        /* Enhanced Page Header */
+        .page-header {
+            position: relative;
+            height: 350px;
+            background: linear-gradient(135deg, rgba(41, 128, 185, 0.9) 0%, rgba(52, 152, 219, 0.8) 100%), url('../assets/images/agriculture-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../assets/images/pattern.svg');
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        /* Enhanced Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-category {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #4b5563;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-card {
+                padding: 1rem;
+            }
+
+            .project-title {
+                font-size: 1.25rem;
+            }
+
+            .page-header {
+                height: 250px;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-card {
+                padding: 0.75rem;
+            }
+
+            .project-title {
+                font-size: 1.1rem;
+            }
+
+            .page-header {
+                height: 200px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+    
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="page-header-content">
+            <h1>Project Portfolio</h1>
+            <p>Exploring agricultural innovations through AI and sustainable practices</p>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('../assets/images/farmai-project.jpg');"></div>
+                <div class="project-content">
+                    <span class="project-category">AI Innovation</span>
+                    <h2 class="project-title">FARMAI: Agricultural AI Platform</h2>
+                    <p class="project-description">
+                        Innovative AI technology solution for smallholder farmers in Siaya, Kenya, focusing on improving
+                        agricultural productivity through data-driven insights.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('../assets/images/data-insights.jpg');"></div>
+                <div class="project-content">
+                    <span class="project-category">Data Analysis</span>
+                    <h2 class="project-title">Agricultural Data Insights</h2>
+                    <p class="project-description">
+                        Comprehensive analysis of agricultural data from the Siaya region, providing strategic insights
+                        for technological intervention and farming improvements.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('../assets/images/ai-implementation.jpg');"></div>
+                <div class="project-content">
+                    <span class="project-category">AI Implementation</span>
+                    <h2 class="project-title">AI Integration Strategy</h2>
+                    <p class="project-description">
+                        Detailed implementation plan for integrating AI technology into traditional farming practices,
+                        emphasizing sustainability and accessibility.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('../assets/images/farmer-training.jpg');"></div>
+                <div class="project-content">
+                    <span class="project-category">Training Materials</span>
+                    <h2 class="project-title">Farmer Technology Training</h2>
+                    <p class="project-description">
+                        Comprehensive training materials designed to educate farmers on AI-powered agricultural tools,
+                        tailored for various levels of technological literacy.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('../assets/images/community-engagement.jpg');"></div>
+                <div class="project-content">
+                    <span class="project-category">Community Engagement</span>
+                    <h2 class="project-title">Agricultural Community Building</h2>
+                    <p class="project-description">
+                        A comprehensive program designed to build community networks among farmers, enabling knowledge
+                        sharing and collaborative problem-solving.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('../assets/images/water-conservation.jpg');"></div>
+                <div class="project-content">
+                    <span class="project-category">Sustainability</span>
+                    <h2 class="project-title">AI-Driven Water Conservation</h2>
+                    <p class="project-description">
+                        An innovative system using AI algorithms to optimize irrigation schedules based on weather
+                        predictions, soil moisture levels, and crop water requirements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                easing: 'ease',
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+    <script src="../assets/js/script.js" defer></script>
+    
+    <!-- Navbar Loading Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to load component with retry logic
+            function loadComponent(componentPath, containerId, retryCount = 0) {
+                fetch(componentPath)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Failed to load ${componentPath}: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        document.getElementById(containerId).innerHTML = data;
+                        
+                        // Execute any scripts in the component
+                        const scripts = document.getElementById(containerId).getElementsByTagName('script');
+                        Array.from(scripts).forEach(script => {
+                            eval(script.innerHTML);
+                        });
+                    })
+                    .catch(error => {
+                        console.error(`Error loading ${componentPath}:`, error);
+                        if (retryCount < 2) {
+                            console.log(`Retrying ${componentPath} (attempt ${retryCount + 1})...`);
+                            setTimeout(() => loadComponent(componentPath, containerId, retryCount + 1), 1000);
+                        } else {
+                            document.getElementById(containerId).innerHTML = 
+                                `<div class="bg-red-100 text-red-700 p-4 rounded">
+                                    Failed to load ${componentPath.split('/').pop()}. 
+                                    <a href="../index.html" class="underline">Return Home</a>
+                                </div>`;
+                        }
+                    });
+            }
+
+            // Load components
+            loadComponent('../components/navbar.html', 'navbar-container');
+            loadComponent('../components/footer.html', 'footer-container');
+        });
+    </script>
+</body>
+
+</html>
